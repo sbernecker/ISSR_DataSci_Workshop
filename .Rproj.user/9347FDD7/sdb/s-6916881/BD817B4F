@@ -1,0 +1,16 @@
+{
+    "contents" : "#example comparing for and while loops\nvector <- rep(0, 10000000)\nrandom <- round(runif(1,1,10000000))\nvector[random] <- 1\n\n#now find the index of that number\nforfind <- function(vector){\n    for(i in 1:length(vector)){\n        if(vector[i] == 1){\n            index <- i\n        }\n    }\n    return(index)\n}\n\nwhilefind <- function(vector){\n    found <- FALSE\n    i <- 1\n    while(!found){ \n        if(vector[i] == 1){\n            index <- i\n            found <- TRUE\n        }\n        i <- i + 1\n    }\n    return(index)\n}\n\nsystem.time(whilefind(vector))\nsystem.time(forfind(vector))\nsystem.time(which(vector == 1, arr.ind = T))\n\n",
+    "created" : 1433255246593.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "44383126",
+    "id" : "BD817B4F",
+    "lastKnownWriteTime" : 1433005137,
+    "path" : "~/GitHub/ISSR_DataSci_Workshop/Scripts/For_While_Comparison.R",
+    "project_path" : "Scripts/For_While_Comparison.R",
+    "properties" : {
+    },
+    "source_on_save" : false,
+    "type" : "r_source"
+}

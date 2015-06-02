@@ -1,0 +1,17 @@
+{
+    "contents" : "\nmyvec = rep(0, times = 100)\nmyvec[71] = 1\n\nhaventFoundTheOne = TRUE\n\ncounter = 1\nwhile(haventFoundTheOne & counter < 500){\n  print(counter)\n  if(myvec[counter > 0]){\n    cat(\"The one is in entry\", counter)\n    haventFoundTheOne = FALSE\n  }\n  counter = counter + 1\n}\n\n\nmyMatrix = matrix(1:400, 20, 20)\n\n#rowSums = function(matrix){\n#  vector = rep(0)\n#}\n\nRow_Sums <- function(matrix){\n  vector <- rep(0, length(matrix[,1]))\n  for(i in 1:length(matrix[,1])){\n    vector[i] <- sum(matrix[i,]) \n  }\n  return(vector)\n}\n# This is for testing what happens when you create an vector of zeroes, versus nulls, versus an empty vector\nBad_Sums1 <- function(matrix){\n  vector <- rep(0, length(matrix[,1]))\n  for(i in c(1,3,5)){\n    vector[i] <- sum(matrix[i,]) \n  }\n  return(vector)\n}\n\n#Output\n#Bad_Sums1(myMatrix)\n# [1] 3820    0 3860    0 3900    0    0    0    0    0    0    0\n# [13]    0    0    0    0    0    0    0    0\n\nBad_Sums2 <- function(matrix){\n  vector <- rep(NULL, length(matrix[,1]))\n  for(i in c(1,3,5)){\n    vector[i] <- sum(matrix[i,]) \n  }\n  return(vector)\n}\n#Output\n#Bad_Sums2(myMatrix)\n#[1] 3820   NA 3860   NA 3900\n\nBad_Sums3 <- function(matrix){\n  vector <- c()\n  for(i in c(1,3,5)){\n    vector[i] <- sum(matrix[i,]) \n  }\n  return(vector)\n}\n\n# Output\n# > Bad_Sums3(myMatrix)\n# [1] 3820   NA 3860   NA 3900\n\n\n\n\n\n\n",
+    "created" : 1433254648566.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "4060030531",
+    "id" : "48F9C98F",
+    "lastKnownWriteTime" : 1433257081,
+    "path" : "~/GitHub/ISSR_DataSci_Workshop/Scripts/Sams_day_2_examples.R",
+    "project_path" : "Scripts/Sams_day_2_examples.R",
+    "properties" : {
+        "tempName" : "Untitled1"
+    },
+    "source_on_save" : false,
+    "type" : "r_source"
+}

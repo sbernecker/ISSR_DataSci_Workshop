@@ -1,0 +1,16 @@
+{
+    "contents" : "#This file contains the source code for two user defined functions.\n#1. takes a matrix input and creates an output that is thresholded so that all values of the matrix above the given number are set to one and the rest are set to zero.\n#2. returns a vector of row sums of a matrix\n#3. adds 10 to a number\n\n\n#1. Threshold Function\n\nThreshold <- function(thresh = 1, matrix){\n    for(i in 1:length(matrix[,1])){\n        for(j in 1: length(matrix[1,])){\n            if(matrix[i,j] > 0){\n                matrix[i,j] <- 1\n            }else{\n                matrix[i,j] <- 0\n            }\n        }\n    }\n    return(matrix)\n}\n\n#2 RowSum Function\n\nRow_Sums <- function(matrix){\n    vector <- rep(0, length(matrix[,1]))\n    for(i in 1: length(matrix[,1])){\n        vector[i] <- sum(matrix[i,]) \n    }\n    return(vector)\n}\n\n# Add ten to an entry\nAddTen <- function(num){\n    num <- num + 10\n    return(num)\n}",
+    "created" : 1433255864826.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "893113726",
+    "id" : "9F06E399",
+    "lastKnownWriteTime" : 1433005137,
+    "path" : "~/GitHub/ISSR_Data_Science_Summer_Summit_15/Scripts/My_Functions.R",
+    "project_path" : null,
+    "properties" : {
+    },
+    "source_on_save" : false,
+    "type" : "r_source"
+}
