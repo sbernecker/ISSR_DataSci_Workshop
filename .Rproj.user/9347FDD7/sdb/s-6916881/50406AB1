@@ -1,0 +1,16 @@
+{
+    "contents" : "#' Example string processing functions using R\n\n# install.packages(\"stringr\")\nlibrary(stringr)\n\n#' Create a string\nmy_string <- \"Example STRING, with numbers (12, 15 and also 10.2)?!\"\ncat(my_string, \"\\n\")\n\n#' lowercase it\nlower_string <- tolower(my_string)\ncat(lower_string, \"\\n\")\n\n#' lets paste two strings together\nsecond_string <- \"Wow, two sentences.\"\nmy_string <- paste(my_string,second_string,sep = \" \")\ncat(my_string, \"\\n\")\n\n#' lets split the string, note that a list is returned so to access the actual \n#' vector containing the split strings, we need to use the list operator and \n#' the first entry\nmy_string_vector <- str_split(my_string, \"!\")[[1]]\nprint(my_string_vector)\n\n#' look for a queston mark\n#' grep returns a vector of the indices of the elements that contain a match\ngrep(\"\\\\?\",my_string_vector)\n\n#' use a logical grep statement\n#' grepl retunrs a vector of logical values, one for each element of the argument\ngrepl(\"\\\\?\",my_string_vector[1])\n\t \n#' replace every instance of \"e\" with \"___\"\nstr_replace_all(my_string, \"e\",\"___\")\n\n#' extract all numbers as a vector\n#' \"[0-9]+\" is a regular expression that means \"any number that has more than one digit\" ... I think\nstr_extract_all(my_string,\"[0-9]+\")\n",
+    "created" : 1433184404383.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "2007293664",
+    "id" : "50406AB1",
+    "lastKnownWriteTime" : 1433185699,
+    "path" : "~/GitHub/ISSR_DataSci_Workshop/Scripts/String_Processing.R",
+    "project_path" : "Scripts/String_Processing.R",
+    "properties" : {
+    },
+    "source_on_save" : false,
+    "type" : "r_source"
+}

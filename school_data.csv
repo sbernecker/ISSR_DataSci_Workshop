@@ -1,0 +1,11 @@
+"Student ID","Grades","Class","Free Lunch?"
+1,"A",0,TRUE
+2,"B",0,TRUE
+3,"C",0,TRUE
+4,"A",0,TRUE
+5,"C",0,TRUE
+6,"F",1,TRUE
+7,"D",1,TRUE
+8,"B",1,TRUE
+9,"B",1,TRUE
+10,"A",1,TRUE
