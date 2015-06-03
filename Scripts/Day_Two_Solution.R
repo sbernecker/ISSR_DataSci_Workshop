@@ -38,7 +38,7 @@ Generate_Sociomatrix <- function(list_index, raw_data_list, num_bills){
   dimensions = nrow(raw_data_list[[list_index]])
   #creates a square matrix of zeroes with the number of appropriate senators and "names" for each senator which is actually a number
   sennames = as.character(1:dimensions)
-  sociomatrix = matrix(0, dimensions, dimensions, dimnames = list(cosponsor = sennames, sponsor = sennames)
+  sociomatrix = matrix(0, nrow=dimensions, ncol=dimensions, dimnames = list(cosponsor = sennames, sponsor = sennames))
   #loops through the specified number of bills
   for (bill in num_bills){
     #gives the row index of the sponsor of the bill
@@ -61,8 +61,8 @@ PreProcess_Network_Data <- function(filenames, num_bills, num_cores = 1){
   matrixnames = paste("Matrix#", 1:length(raw_data_list), sep="")
   Sociomatrix_List[matrixnames] = list(NULL)
   #loops over each file, generates a sociomatrix, and puts it in the appropriate spot in the sociomatrix list
-  for (i in nummatrices){
-    cat("Generating sociomatrix #", i, "of", nummatrices)
+  for (i in 1:nummatrices){
+    cat("Generating sociomatrix #", i, "of", nummatrices, "\n")
     Sociomatrix_List[[i]] = Generate_Sociomatrix(i, raw_data_list, num_bills)
   }
   return(Sociomatrix_List)
