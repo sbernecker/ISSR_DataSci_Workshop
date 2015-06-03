@@ -12,7 +12,7 @@ setwd("C:/Users/Sam/Documents/GitHub/ISSR_DataSci_Workshop/Data")
 #' arbitrary number of input files of the same format as you are working with
 #' and generate a list of sociomatricies out of them:
 
-#this produces a character vector of file names
+#this produces a character vector of file names ... I stole this code from Matt
 filenames <- NULL
 for(i in 100:110){
   filenames <- append(filenames, paste(i,"_senmatrix.txt", sep = ""))
@@ -51,11 +51,20 @@ Generate_Sociomatrix <- function(list_index, raw_data_list, num_bills){
   return(sociomatrix)
 }
 
-PreProcess_Network_Data <- function(filenames, num_bills, num_cores){
-  #' read in the data an generate an internal raw data list object. Then use
-  #' parallel processing (one of the three functions we discussed) to process
-  #' the data and return a list containing all sociomatricies. Try different
-  #' approaches and see which is fastest?
+#okay, this is the big wrapper function that combines the functions I already created and outputs a sociomatrix list. I'm not going to try parallelization because, uh, I have only two cores, and my goal right now is not to learn how to do that. I just want to learn basic R data management techniques. ... well, actually ... maybe I'll try it. But I'll create a boring function first. 
+PreProcess_Network_Data <- function(filenames, num_bills, num_cores = 1){
+ #creates a list of data frames NEED TO DO SOMETHING WITH THIS
+  raw_data_list = Read_In_Data(filenames)
+  #creates an empty list in which to put the sociomatrices, 
+  Sociomatrix_List = list()
+  nummatrices = length(raw_data_list)
+  matrixnames = paste("Matrix#", 1:length(raw_data_list), sep="")
+  Sociomatrix_List[matrixnames] = list(NULL)
+  #loops over each file, generates a sociomatrix, and puts it in the appropriate spot in the sociomatrix list
+  for (i in nummatrices){
+    cat("Generating sociomatrix #", i, "of", nummatrices)
+    Sociomatrix_List[[i]] = Generate_Sociomatrix(i, raw_data_list, num_bills)
+  }
   return(Sociomatrix_List)
 }
 
